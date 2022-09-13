@@ -5,4 +5,9 @@ public class Books {
     private String name;
     private String mame;
 
+    public Books(Long id, String name, String mame) {
+        this.id = id;
+        this.name = name;
+        this.mame = mame;
+    }
 }
