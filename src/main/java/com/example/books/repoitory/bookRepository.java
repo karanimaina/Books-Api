@@ -17,7 +17,14 @@ public class bookRepository {
     public List<Book>findAll(){
         return  jdbcTemplate.query("select * from books", new BeanPropertyRowMapper<Book>(Book.class));
     }
+
     public Book findById(Long id){
-        return jdbcTemplate.queryForObject("select * from book where id =?",new BeanPropertyRowMapper<Book>(Book.class));
+        return jdbcTemplate.queryForObject("select * from book where id =?",new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));
+    }
+    public int DeleteById(Long id){
+        return jdbcTemplate.update("delete * from book where id =?",new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));
+    }
+    public int updateById(Long id){
+        return jdbcTemplate.update("select * from book where id =?",new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));
     }
 }
