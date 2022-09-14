@@ -1,14 +1,14 @@
 package com.example.books.models;
 
-public class Books {
+public class Book {
     private Long id;
     private String name;
-    private String mame;
+    private String author;
 
-    public Books(Long id, String name, String mame) {
+    public Book(Long id, String name, String author) {
         this.id = id;
         this.name = name;
-        this.mame = mame;
+        this.author = author;
     }
 
     public Long getId() {
@@ -27,11 +27,11 @@ public class Books {
         this.name = name;
     }
 
-    public String getMame() {
-        return mame;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setMame(String mame) {
-        this.mame = mame;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }
