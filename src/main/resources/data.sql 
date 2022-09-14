@@ -1,0 +1,4 @@
+INSERT INTO BOOK(id,name,author)values(1L,"heroPro","felixius")
+INSERT INTO BOOK(id,name,author)values(2L,"hero","fe")
+INSERT INTO BOOK(id,name,author)values(3L,"herospider","feliz")
+INSERT INTO BOOK(id,name,author)values(4L,"heroman","suppleanos")

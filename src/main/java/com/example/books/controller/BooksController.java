@@ -1,6 +1,6 @@
 package com.example.books.controller;
 
-import com.example.books.models.Books;
+import com.example.books.models.Book;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,12 +11,12 @@ import java.util.List;
 
 public class  BooksController{
 @GetMapping("/books")
-    public List<Books>getAllBooks(){
+    public List<Book>getAllBooks(){
     return Arrays.asList(
-            new Books(1L,"hero","felix"),
-            new Books(2L,"negro","drake"),
-            new Books(3L,"creation","Genevieve"),
-            new Books(4L,"maurice","maina")
+            new Book(1L,"hero","felix"),
+            new Book(2L,"negro","drake"),
+            new Book(3L,"creation","Genevieve"),
+            new Book(4L,"maurice","maina")
     );
 }
 }
