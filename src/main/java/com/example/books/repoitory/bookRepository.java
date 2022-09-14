@@ -5,8 +5,11 @@ import org.hibernate.dialect.LobMergeStrategy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -37,5 +40,23 @@ public class bookRepository {
         return jdbcTemplate.update("update book +"+"set name = ?,location =?,birth_date = ?)"+"where id = "?",new Object[]{
                 book.getId(),book.getName(),book.getAuthor()
         },new BeanPropertyRowMapper<Book>(Book.class));
+  //defining a custom bean mapper
+  class BookRowMapper  implements RowMapper<Book>
+  {
+
+      @Override
+      public Book mapRow(ResultSet rs, int rowNum) throws SQLException {
+          Book book = new Book();
+          book.setId(rs.getLong("id"));
+          book.setAuthor(rs.getString("author"));
+          book.setName(rs.getString("name"));
+          return  book;
+      }
+  }
+
+
+
+
     }
-}
+
+
