@@ -25,7 +25,17 @@ public class bookRepository {
         return jdbcTemplate.update("delete * from book where id =?",new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));
     }
     public int updateById(Long id){
-
         return jdbcTemplate.update("select * from book where id =?",new Object[]{id},new BeanPropertyRowMapper<Book>(Book.class));
+    }
+    public int insert(Book book){
+        return jdbcTemplate.update("insert into book(id,name,author)"+"values ("?,?,?")",new Object[]{
+                book.getId(),book.getName(),book.getAuthor()
+        },new BeanPropertyRowMapper<Book>(Book.class));
+    }
+//    generate query to update an existing object in the database
+    public int update(Book book){
+        return jdbcTemplate.update("update book +"+"set name = ?,location =?,birth_date = ?)"+"where id = "?",new Object[]{
+                book.getId(),book.getName(),book.getAuthor()
+        },new BeanPropertyRowMapper<Book>(Book.class));
     }
 }
